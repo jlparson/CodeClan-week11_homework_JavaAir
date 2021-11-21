@@ -28,26 +28,54 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
+
+    public Pilot getPilot(){
+        return this.pilot;
+    }
+
+    public CabinCrewMember getCabinCrewMember(){
+        return this.cabinCrewMember;
+    }
+
     public int passengerCount() {
-        return passengers.size();
+        return this.passengers.size();
     }
 
     public Plane getPlane() {
-        return plane;
+        return this.plane;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
     }
 
     public String getDestination() {
-        return destination;
+        return this.destination;
     }
 
     public String getDestinationAirport() {
-        return destinationAirport;
+        return this.destinationAirport;
     }
 
     public Object getDepartureTime() {
-        return departureTime;
+        return this.departureTime;
     }
 
+    public int capacity(){
+        return plane.getCapacity();
+    }
 
+    public int remainingSeats() {
+        return this.capacity() - this.passengerCount();
+    }
 
+    public boolean isFullNoRemainingSeats(){
+        return this.capacity() == this.passengerCount();
+    }
+
+    public void bookPassenger(Passenger passenger) {
+        if(!isFullNoRemainingSeats()){
+            this.passengers.add(passenger);
+        }
+    }
 }

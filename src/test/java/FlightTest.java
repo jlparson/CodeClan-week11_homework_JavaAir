@@ -34,6 +34,16 @@ public class FlightTest {
     }
 
     @Test
+    public void hasPilot(){
+        assertEquals(pilot, flight.getPilot());
+    }
+
+    @Test
+    public void hasCabinCrewMembers(){
+        assertEquals(cabinCrewMember, flight.getCabinCrewMember());
+    }
+
+    @Test
     public void hasEmptyPassengerListToStart(){
         assertEquals(0, flight.passengerCount());
     }
@@ -45,7 +55,7 @@ public class FlightTest {
 
     @Test
     public void hasFlightNumber(){
-        assertEquals("FR4524", flight.getPlane());
+        assertEquals("FR4524", flight.getFlightNumber());
     }
 
     @Test
@@ -64,12 +74,22 @@ public class FlightTest {
     }
 
     @Test
+    public void shouldHaveCapacityRemainingSeats(){
+        assertEquals(366, flight.remainingSeats());
+    }
+
+    @Test
     public void canBookPassenger(){
         flight.bookPassenger(passenger1);
         flight.bookPassenger(passenger2);
         assertEquals(2, flight.passengerCount());
     }
 
-
-
+    @Test
+    public void shouldReduceCapacityAfterBookingPassenger(){
+        flight.bookPassenger(passenger1);
+        flight.bookPassenger(passenger2);
+        assertEquals(364, flight.remainingSeats());
+    }
+    
 }
