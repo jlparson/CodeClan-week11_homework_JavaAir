@@ -1,19 +1,22 @@
 package flight;
 
-public enum Plane {
+public class Plane {
 
-    BOEING747(366, 412770),
-    BOEING777(350, 247200),
-    BOEING787(248, 227930);
+    private PlaneType planeType;
 
-    private final int capacity;
-    private final int weight;
-
-    Plane(int capacity, int weight){
-        this.capacity = capacity;
-        this.weight = weight;
+    public Plane(PlaneType planeType){
+        this.planeType = planeType;
     }
 
-    public int getCapacity(){ return capacity; }
-    public int getWeight(){ return weight; }
+    public PlaneType getPlaneType() {
+        return planeType;
+    }
+
+    public int getCapacity() {
+        return this.planeType.getCapacity();
+    }
+
+    public int getWeight() {
+        return this.planeType.getWeight();
+    }
 }

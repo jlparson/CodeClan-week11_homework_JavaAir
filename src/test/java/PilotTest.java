@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PilotTest {
 
-    Pilot pilot;
+    private Pilot pilot;
 
     @Before
     public void before(){
